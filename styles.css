@@ -29,7 +29,32 @@ body {
 
 h1 {
     text-decoration: none;
+    overflow: hidden;
+    
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    white-space: nowrap;
+    margin: 0 auto;
+    
+    animation: 
+        typing 5s steps(40, end),
+        blink-caret .75s step-end ;        
+
 }
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: tomato; }
+}
+
+
 
 h2 {
     color: tomato;
@@ -144,7 +169,9 @@ sub {
     .top li {
         flex: 1 1 auto;
         display: inline-block;
+        list-style-type: none;
     }
+    
 
     #wide-nav-cont {
         display: block;
@@ -164,7 +191,15 @@ sub {
     nav {
         line-height: 1;
         height:auto;
-        text-align: left;
+        text-align: center;
+        list-style-type: none;
+        list-style: none;
+        
+        
+    }
+    ul {
+        list-style: none;
+
     }
 
     .nav-right {
