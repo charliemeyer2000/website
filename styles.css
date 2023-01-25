@@ -203,6 +203,10 @@ sub {
 
     }
 
+    p {
+        text-align:justify;
+    }
+
     .nav-right {
         float: left;
     }
