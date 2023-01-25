@@ -37,7 +37,7 @@ h1 {
     margin: 0 auto;
     
     animation: 
-        typing 3.5s steps(40, end),
+        typing 3.0s steps(40, end),
         blink-caret .75s step-end ;        
 
 }
@@ -191,14 +191,15 @@ sub {
     nav {
         line-height: 1;
         height:auto;
-        text-align: center;
         list-style-type: none;
         list-style: none;
+       
         
         
     }
     ul {
         list-style: none;
+        display: inline;
 
     }
 
@@ -210,7 +211,10 @@ sub {
         display: none;
     }
     #narrow-nav-cont {
-        display: block;
+        display:flex;
+        justify-content: center;
+        gap: 5%;
+        padding: 1rem;
     }
 }
 
