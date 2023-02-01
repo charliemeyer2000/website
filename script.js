@@ -49,6 +49,7 @@ window.onload = function() {
         titleAndDate.style = "text-align:center;"
         titleAndDate.textContent = `Today's XKCD Comic: ${data.title} - ${new Date().toDateString()}`;
         //document.body.appendChild(titleAndDate);
+        document.getElementById('photo-locator').appendChild(document.createElement('hr'))
         document.getElementById('photo-locator').appendChild(titleAndDate)
         document.getElementById('photo-locator').appendChild(comicImg)
         
