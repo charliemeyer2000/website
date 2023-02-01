@@ -5,7 +5,9 @@ function copy(text) {
     dummy.select();
     document.execCommand("copy");
     document.body.removeChild(dummy);
-} 
+}
+
+
   
 function showCopied() {
     var copiedText = document.getElementById("copied");
