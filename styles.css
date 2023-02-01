@@ -207,6 +207,9 @@ sub {
         text-align:justify;
         
     }
+    footer > p { 
+        text-align: center;
+    }
 
     .nav-right {
         float: left;
