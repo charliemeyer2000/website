@@ -32,7 +32,7 @@ function showBTCAddr() {
     copiedText.style.opacity=0;
     }, 2000);
 }
-
+/*
 window.onload = function() {
     const xkcdUrl = 'https://xkcd.com/info.0.json';
   
@@ -56,3 +56,30 @@ window.onload = function() {
       })
       .catch(error => console.error(error));
   };
+  */
+
+  window.onload = function() {
+    const xkcdUrl = 'https://xkcd.com/';
+  
+    fetch(xkcdUrl)
+      .then(response => response.json())
+      .then(html => {
+        let parser = new DOMParser();
+        let doc = parser.parseFromString(html, "text/html");
+        let element = doc.getElementById("comic");
+        console.log(element.innerHTML());
+
+        /*
+        //document.body.appendChild(comicImg);
+        const titleAndDate = document.createElement('p');
+        titleAndDate.style = "text-align:center;"
+        titleAndDate.textContent = `Today's XKCD Comic: ${data.title} - ${new Date().toDateString()}`;
+        //document.body.appendChild(titleAndDate);
+        document.getElementById('photo-locator').appendChild(document.createElement('hr'))
+        document.getElementById('photo-locator').appendChild(titleAndDate)
+        document.getElementById('photo-locator').appendChild(comicImg)
+        */
+      })
+      .catch(error => console.error(error));
+  };
+
