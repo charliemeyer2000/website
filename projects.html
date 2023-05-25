@@ -1,71 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="https://em-content.zobj.net/thumbs/120/apple/325/desktop-computer_1f5a5-fe0f.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="icon"
+      href="https://em-content.zobj.net/thumbs/120/apple/325/desktop-computer_1f5a5-fe0f.png"
+    />
     <title>projects</title>
     <script src="script.js"></script>
-    
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <nav>
-            <div id="wide-nav-cont">
-                <a href="index.html">home</a>
-                <a href="projects.html">projects</a>
-                <a href="contact.html">contact</a>
-                <a href="https://github.com/charliemeyer2000" class="nav-right" target="_blank" rel="noopener noreferrer"><img class="stroked" src="/images/github.svg"></a>
-                <a href="https://www.linkedin.com/in/charlie-meyer-868871264/" class="nav-right" target="_blank" rel="noopener noreferrer"><img class="stroked" src="/images/linkedin.svg"></a>
-            </div>
-            <ul id="narrow-nav-cont">
-                <li><a href="index.html">home</a></li>
-                <li><a href="projects.html">projects</a></li>
-                <li><a href="contact.html">contact</a></li>
-                <li><a href="https://github.com/charliemeyer2000" target="_blank" rel="noopener noreferrer">github</a></li>
-                <li><a href="https://www.linkedin.com/in/charlie-meyer-868871264/" target="_blank" rel="noopener noreferrer">linkedin</a></li>
-            </ul>
-        </nav>
-        <br>
+      <nav>
+        <div id="wide-nav-cont">
+          <a href="index.html">home</a>
+          <a href="projects.html">projects</a>
+          <a href="contact.html">contact</a>
+          <a
+            href="https://github.com/charliemeyer2000"
+            class="nav-right"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><img class="stroked" src="/images/github.svg"
+          /></a>
+          <a
+            href="https://www.linkedin.com/in/charlie-meyer-868871264/"
+            class="nav-right"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><img class="stroked" src="/images/linkedin.svg"
+          /></a>
+        </div>
+        <ul id="narrow-nav-cont">
+          <li><a href="index.html">home</a></li>
+          <li><a href="projects.html">projects</a></li>
+          <li><a href="contact.html">contact</a></li>
+          <li>
+            <a
+              href="https://github.com/charliemeyer2000"
+              target="_blank"
+              rel="noopener noreferrer"
+              >github</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/charlie-meyer-868871264/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >linkedin</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <br />
     </header>
-<h1>projects</h1>
-<hr>
-<h2>iro treasurer website</h2>
-<p>I became the treasurer for the IRO in November of 2022, and my campaign promise was to make the club's finances transparent, so I made a website displaying Bank of America information. You can visit it <a href="https://iro-treasurer.herokuapp.com/" target="_blank" rel="noopener noreferrer"> here.</a> Although I wish I could publish the repo on GitHub as I am very proud of it, it contains confidential banking information. If you want me to publish the webscraper, though, contact me and I will. </p>
-<p></p>
-<p>Unfortunately, Bank of America is secure <sup>[citation needed]</sup> and doesn't have an API. So, to get banking information automatically I had to use Selenium to webscrape. This required me to both sign-in to Bank of America automatically <i>and</i> automate the two-factor authentication. So, the webscraper first logs in to Bank of America, checks to see if two-factor authentication is required (it is), uses Google's OAuth 2.0 certification to log into the email account associated with the bank account, retrieves the authorization code, and then finally logs in. Once logged in, the scraper then scrapes the account's balance and recent transactions and displays them on the website in a readable manner.  </p>
-<p> When typing it out, designing this website sounded like it could take me a day, but this took me over two weeks to make because of unexpected hurdles. Bank of America <em>really</em> doesn't like it when you request over 20 authorization codes within a short succession and gets very angry at you and tries to lock you out of your own account. The Google OAuth 2.0 system can be quite annoying to work with when tokens and credentials conflict. Since I wrote the scraper in Python, I had to use Django to host the website to run the scripts in the background and update the website once they finished. Hosting the site on Heroku posed more challenges, as I had to figure out how to configure buildpacks that allowed Selenium to run and deal with a variety of issues including unsupported packages, annoying procfiles, and long deployment times. </p>
-<h2> this website </h2>
-<p>I wrote this website in about 1 day with heavy inspiration from Luke Smith's website <a href="https://www.based.cooking" target="_blank" rel="noopener noreferrer">based.cooking</a> (it's got some good recipes) and Tom Marks' personal website <a href="https://coding.tommarks.xyz/index.html" target="_blank" rel="noopener noreferrer"> Tom Marks Talks Code</a>. I used a lot of their tutorials to do some cool things. This was written entirely using just HTML and CSS and small amounts of JS. I really like the minimalist style of this website. I considered a more modern style for this website, initially toying around with adding fancy hover animations, animations that play while the user scrolls, and other interesting things, but (1) I don't have the time (2) I think they look tacky and can be confusing and (3) this simplistic website does the job well. I love its color pattern and layout and how it's styled like markdown. </p>
-<p> As you may (or may not) have noticed, I decided to spend the time to legitimately host my website on my own domain. I previously hosted in on GitHub pages, but I didn't like that it forced you to have your domain be .github.io. So, I knew i'd take up hosting it myself. I ended up purchasing a domain from Google and using Vultr to host my server (maybe in the future i'll use my Raspberry Pi as a server, if I get motivated to do so!). I took on Luke Smith's challenge to set up a website in one sitting by following  <a href="https://youtu.be/3dIVesHEAzc" target="_blank" rel="noopener noreferrer">this tutorial.</a> While I was able to host my website and have it up in one sitting, setting up my email server was much harder. Google offers a service called "Google Workspace" where you pay $6/month/user to have an email *@charliemeyer.xyz - they make the setup and use super easy, but for my purposes, spending $6/user/month is absurd. I then took it upon myself (out of spite, pride, or stupidity) to set up the email server myself. While Luke's video does explain how to set it up, he glosses over some steps and misses other steps entirely. I learned on my own how to create MX records and CNAME records. I also learned a little about DNS, IMAP, STMP, and ports in general as I had to manually open ports to allow incoming/outgoing emails and fix reverse DNS mismatches. That, in addition to running multiple STMP tests, blacklist tests, and firewall tests finally got it to work. Hooray! &#129299; 
-</p>
-<p>In the future, I want to design another personal website that is like a Mac OS 8 desktop - it opens to a terminal where you can enter commands to see my projects, learn about me, and maybe even poke around the file system. You could also interact with other applications on the desktop, such as opening/closing the trashbin or even playing Oregon Trail! </p> 
+    <h1>projects</h1>
+    <hr />
+    <h2>hymnai</h2>
+    <p>
+      I co-founded
+      <a href="https://hymn.market" target="_blank" rel="noopener noreferrer">
+        HymnAI</a
+      >, a startup with my friend
+      <a
+        href="https://www.linkedin.com/in/rylandbirchmeier/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Ryland Birchmeier</a
+      >
+      that generates samples for music producers using AI. Specifically, we
+      currently host Riffusion, a model that uses stable diffusion to generate
+      music. We are working hard to provide our own proprietary one-shots and fx
+      model alongside providing a downloadable app that would be a perfect
+      companion for any music producer.
+    </p>
+    <p>
+      There are tons of technologies used for this project, of which I could
+      talk hours about. All of our services are hosted and ran using Google
+      Kubernetes Engine (GKE) and other services provided through Google Cloud
+      Platform (GCP). The services running on our Kubernetes cluster include the
+      website itself, a backend API that handles queries to generate ai samples,
+      a service that generates the samples using stable diffusion, a service
+      that hosts a queue using redis, celery, and flower to view it and manage
+      it, a service that helps us create large datasets called Avalanche
+      &#128170;, and a service that stores all of our samples in a vector space
+      using Pinecone. These all interact in intricate ways, and its an
+      incredible system.
+    </p>
+    <p>
+      We have many plans for the future, including (but not limited to) what was
+      mentioned above. With our access to UVA supercomputing and advising from
+      mentors in the field, we have the tools (and hopefully soon the money) to
+      truly take off.
+    </p>
+    <h2>iro treasurer website</h2>
+    <p>
+      I became the treasurer for the IRO in November of 2022, and my campaign
+      promise was to make the club's finances transparent, so I made a website
+      displaying Bank of America information. You can visit it
+      <a
+        href="https://iro-treasurer.herokuapp.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        here.</a
+      >
+      Although I wish I could publish the repo on GitHub as I am very proud of
+      it, it contains confidential banking information. If you want me to
+      publish the webscraper, though, contact me and I will.
+    </p>
+    <p></p>
+    <p>
+      Unfortunately, Bank of America is secure <sup>[citation needed]</sup> and
+      doesn't have an API. So, to get banking information automatically I had to
+      use Selenium to webscrape. This required me to both sign-in to Bank of
+      America automatically <i>and</i> automate the two-factor authentication.
+      So, the webscraper first logs in to Bank of America, checks to see if
+      two-factor authentication is required (it is), uses Google's OAuth 2.0
+      certification to log into the email account associated with the bank
+      account, retrieves the authorization code, and then finally logs in. Once
+      logged in, the scraper then scrapes the account's balance and recent
+      transactions and displays them on the website in a readable manner.
+    </p>
+    <p>
+      When typing it out, designing this website sounded like it could take me a
+      day, but this took me over two weeks to make because of unexpected
+      hurdles. Bank of America <em>really</em> doesn't like it when you request
+      over 20 authorization codes within a short succession and gets very angry
+      at you and tries to lock you out of your own account. The Google OAuth 2.0
+      system can be quite annoying to work with when tokens and credentials
+      conflict. Since I wrote the scraper in Python, I had to use Django to host
+      the website to run the scripts in the background and update the website
+      once they finished. Hosting the site on Heroku posed more challenges, as I
+      had to figure out how to configure buildpacks that allowed Selenium to run
+      and deal with a variety of issues including unsupported packages, annoying
+      procfiles, and long deployment times.
+    </p>
+    <h2>this website</h2>
+    <p>
+      I wrote this website in about 1 day with heavy inspiration from Luke
+      Smith's website
+      <a
+        href="https://www.based.cooking"
+        target="_blank"
+        rel="noopener noreferrer"
+        >based.cooking</a
+      >
+      (it's got some good recipes) and Tom Marks' personal website
+      <a
+        href="https://coding.tommarks.xyz/index.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Tom Marks Talks Code</a
+      >. I used a lot of their tutorials to do some cool things. This was
+      written entirely using just HTML and CSS and small amounts of JS. I really
+      like the minimalist style of this website. I considered a more modern
+      style for this website, initially toying around with adding fancy hover
+      animations, animations that play while the user scrolls, and other
+      interesting things, but (1) I don't have the time (2) I think they look
+      tacky and can be confusing and (3) this simplistic website does the job
+      well. I love its color pattern and layout and how it's styled like
+      markdown.
+    </p>
+    <p>
+      As you may (or may not) have noticed, I decided to spend the time to
+      legitimately host my website on my own domain. I previously hosted in on
+      GitHub pages, but I didn't like that it forced you to have your domain be
+      .github.io. So, I knew i'd take up hosting it myself. I ended up
+      purchasing a domain from Google and using Vultr to host my server (maybe
+      in the future i'll use my Raspberry Pi as a server, if I get motivated to
+      do so!). I took on Luke Smith's challenge to set up a website in one
+      sitting by following
+      <a
+        href="https://youtu.be/3dIVesHEAzc"
+        target="_blank"
+        rel="noopener noreferrer"
+        >this tutorial.</a
+      >
+      While I was able to host my website and have it up in one sitting, setting
+      up my email server was much harder. Google offers a service called "Google
+      Workspace" where you pay $6/month/user to have an email *@charliemeyer.xyz
+      - they make the setup and use super easy, but for my purposes, spending
+      $6/user/month is absurd. I then took it upon myself (out of spite, pride,
+      or stupidity) to set up the email server myself. While Luke's video does
+      explain how to set it up, he glosses over some steps and misses other
+      steps entirely. I learned on my own how to create MX records and CNAME
+      records. I also learned a little about DNS, IMAP, STMP, and ports in
+      general as I had to manually open ports to allow incoming/outgoing emails
+      and fix reverse DNS mismatches. That, in addition to running multiple STMP
+      tests, blacklist tests, and firewall tests finally got it to work. Hooray!
+      &#129299;
+    </p>
+    <p>
+      In the future, I want to design another personal website that is like a
+      Mac OS 8 desktop - it opens to a terminal where you can enter commands to
+      see my projects, learn about me, and maybe even poke around the file
+      system. You could also interact with other applications on the desktop,
+      such as opening/closing the trashbin or even playing Oregon Trail!
+    </p>
 
-<h2>twitter to lcd</h2>
-<p>As I mentioned in my about page, I have a passion for creating and automating random things on my Rasberry Pi for no reason. This project uses the Twitter API for python, tweepy, to live stream the most recent mentions for my account (or any account, for that matter). If a new mention is found, it displays who said it and the contents of the tweet; if not, it keeps displaying "waiting for mentions." </p>
-<p>The hardware I used in this project was pretty simple - A Raspberry Pi (and a keyboard, mouse, monitor, and power source). Further, I connected an Arduino connected to the Pi with a USB cord, and connected a 16x2 LCD display to the Arduino. Since the Pi has a Wifi chip, I let the Pi communicate with the Twitter API, and then it sends the information using the USB serial protocol to the Arduino to then parse and display on the LCD.</p>
-<p>The hardest part about this project was (surprisingly) not using Twitter's API, but making calls to Twitter's API in a "live stream" manner. Because I had a free developer account, it was difficult to "live stream" without using too many requests within a period of time (Twitter timed my account out many, many times ¯\_(ツ)_/¯ ), so the program checks for new mentions every five seconds or so. Further, most tweets are more than 32 characters, so I had to implement a scrolling method to display all of the text, which was somewhat of a challenge.</p>
+    <h2>twitter to lcd</h2>
+    <p>
+      As I mentioned in my about page, I have a passion for creating and
+      automating random things on my Rasberry Pi for no reason. This project
+      uses the Twitter API for python, tweepy, to live stream the most recent
+      mentions for my account (or any account, for that matter). If a new
+      mention is found, it displays who said it and the contents of the tweet;
+      if not, it keeps displaying "waiting for mentions."
+    </p>
+    <p>
+      The hardware I used in this project was pretty simple - A Raspberry Pi
+      (and a keyboard, mouse, monitor, and power source). Further, I connected
+      an Arduino connected to the Pi with a USB cord, and connected a 16x2 LCD
+      display to the Arduino. Since the Pi has a Wifi chip, I let the Pi
+      communicate with the Twitter API, and then it sends the information using
+      the USB serial protocol to the Arduino to then parse and display on the
+      LCD.
+    </p>
+    <p>
+      The hardest part about this project was (surprisingly) not using Twitter's
+      API, but making calls to Twitter's API in a "live stream" manner. Because
+      I had a free developer account, it was difficult to "live stream" without
+      using too many requests within a period of time (Twitter timed my account
+      out many, many times ¯\_(ツ)_/¯ ), so the program checks for new mentions
+      every five seconds or so. Further, most tweets are more than 32
+      characters, so I had to implement a scrolling method to display all of the
+      text, which was somewhat of a challenge.
+    </p>
 
-<h2>spotify control</h2>
-<p> With the running theme of using a Raspberry Pi, I also unnecessarily used a HW-504 joystick to control my Spotify music. The Pi is constantly on, and whenever the joystick button is pressed down, music either stops/starts playing. Tilting the joystick left skips forward, right skips backwards, up inreases the volume, and down decreases the volume. </p>
-<p> This project was made much easier with very straightforward documentation from the Spotify API/Spotipy's readthedocs, and using the joystick was quite easy, as well. The only minor hiccup was finding ways to avoid the "noise" of the joystick when it's not been moved. Even when it's stationary and no one has touched it, the joystick still sometimes "moves". So, finding a way to avoid the unnecessary noise and determine what constitutes an actually human inputted input was the hardest part.</p>
+    <h2>spotify control</h2>
+    <p>
+      With the running theme of using a Raspberry Pi, I also unnecessarily used
+      a HW-504 joystick to control my Spotify music. The Pi is constantly on,
+      and whenever the joystick button is pressed down, music either
+      stops/starts playing. Tilting the joystick left skips forward, right skips
+      backwards, up inreases the volume, and down decreases the volume.
+    </p>
+    <p>
+      This project was made much easier with very straightforward documentation
+      from the Spotify API/Spotipy's readthedocs, and using the joystick was
+      quite easy, as well. The only minor hiccup was finding ways to avoid the
+      "noise" of the joystick when it's not been moved. Even when it's
+      stationary and no one has touched it, the joystick still sometimes
+      "moves". So, finding a way to avoid the unnecessary noise and determine
+      what constitutes an actually human inputted input was the hardest part.
+    </p>
 
-<h2>mystery project</h2>
-<p>It's a mystery&#129400; Well, I can tell you that i've started an ambitious project with a friend. If you want a sneak peek, though, <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">here's a teaser GitHub Repo.</a></p>
-<p></p>
-<h2>other</h2>
-<p>Some of the other projects that i've made are just tutorial projects, collaborative projects for clubs, or projects that are now discontinued and don't work. To start, I've collaboratively worked on <a href="https://hoohacks.io" target="_blank" rel="noopener noreferrer" >HooHacks' registration system</a> which runs on Django - however, I only worked on a portion of it and it wasn't entirely on my own. I'm also a part of the microprocessor club where I followed <a href="https://eater.net/6502" target="_blank" rel="noopener noreferrer">Ben Eater's computer tutorial</a> to build a mini computer to print "Hello World," which was much harder than it seems! I learned a lot about how computers work with clocks, circuts, RAM, EEPROMs, assembly, and much more. </p>
+    <h2>mystery project</h2>
+    <p>
+      It's a mystery&#129400; Well, I can tell you that i've started an
+      ambitious project with a friend. If you want a sneak peek, though,
+      <a
+        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        target="_blank"
+        rel="noopener noreferrer"
+        >here's a teaser GitHub Repo.</a
+      >
+    </p>
 
-<hr>
-<footer>
-    
-    <p><em>Buy me a ☕! <a href="https://account.venmo.com/u/charlie-meyer-29" target="_blank" rel="noopener noreferrer">Venmo</a> or <a href="https://www.paypal.com/paypalme/charliemeyer2026" target="_blank" rel="noopener noreferrer">PayPal</a> or <a href="#" onclick="copy('1GbDcN3Gne3C9p3XEqHSCnTo7QL8CyCRdg'); showBTCAddr(); return false">Bitcoin</a></em></p>
-    <p id="BTCADDR" style="display:none; opacity: 0; transition: opacity 2s;">Copied BTC address: 1GbDcN3Gne3C9p3XEqHSCnTo7QL8CyCRdg</p>
-</footer>
+    <h2>other</h2>
+    <p>
+      Some of the other projects that i've made are just tutorial projects,
+      collaborative projects for clubs, or projects that are now discontinued
+      and don't work. To start, I've collaboratively worked on
+      <a href="https://hoohacks.io" target="_blank" rel="noopener noreferrer"
+        >HooHacks' registration system</a
+      >
+      which runs on Django - however, I only worked on a portion of it and it
+      wasn't entirely on my own. I'm also a part of the microprocessor club
+      where I followed
+      <a href="https://eater.net/6502" target="_blank" rel="noopener noreferrer"
+        >Ben Eater's computer tutorial</a
+      >
+      to build a mini computer to print "Hello World," which was much harder
+      than it seems! I learned a lot about how computers work with clocks,
+      circuts, RAM, EEPROMs, assembly, and much more.
+    </p>
 
-
-
-</body>
+    <hr />
+    <footer>
+      <p>
+        <em
+          >Buy me a ☕!
+          <a
+            href="https://account.venmo.com/u/charlie-meyer-29"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Venmo</a
+          >
+          or
+          <a
+            href="https://www.paypal.com/paypalme/charliemeyer2026"
+            target="_blank"
+            rel="noopener noreferrer"
+            >PayPal</a
+          >
+          or
+          <a
+            href="#"
+            onclick="copy('1GbDcN3Gne3C9p3XEqHSCnTo7QL8CyCRdg'); showBTCAddr(); return false"
+            >Bitcoin</a
+          ></em
+        >
+      </p>
+      <p id="BTCADDR" style="display: none; opacity: 0; transition: opacity 2s">
+        Copied BTC address: 1GbDcN3Gne3C9p3XEqHSCnTo7QL8CyCRdg
+      </p>
+    </footer>
+  </body>
 </html>
